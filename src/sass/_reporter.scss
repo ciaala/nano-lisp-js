@@ -1,0 +1,44 @@
+/* Overwrite existing Jasmine rules */
+
+body {
+  visibility: hidden;
+}
+
+.html-reporter,
+.jasmine_html-reporter {
+  border-bottom: 10px solid #A6B779;
+  padding-bottom: 20px;
+  visibility: visible;
+}
+
+div.summary.jasmine-tree-summary {
+  box-sizing: border-box;
+}
+
+div.summary.jasmine-tree-summary ul.suite {
+  padding-left: 10px;
+  position: relative;
+}
+
+div.summary.jasmine-tree-summary ul.specs li {
+  padding-left: 10px;
+}
+
+div.summary.jasmine-tree-summary > ul.suite {
+  border-left: 0;
+}
+
+div.summary.jasmine-tree-summary > ul.suite:before,
+div.summary.jasmine-tree-summary > ul.suite:after {
+  border-left: 0;
+  border-bottom: 0;
+}
+
+.html-reporter .summary ul.suite,
+.jasmine_html-reporter .summary ul.suite {
+  padding-bottom: 0;
+  padding-top: 14px;
+  margin-left: 8px;
+  margin-top: 0;
+  margin-bottom: 0;
+}

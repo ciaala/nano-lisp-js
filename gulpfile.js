@@ -8,6 +8,7 @@ var fs = require("fs");
 var header = require("gulp-header");
 var rename = require("gulp-rename");
 var runSequence = require("run-sequence");
+var sass = require("gulp-sass");
 var sourcemaps = require("gulp-sourcemaps");
 var uglify = require("gulp-uglify");
 var zip = require("gulp-zip");
@@ -17,6 +18,7 @@ var pkg = require("./package.json");
 var CONST = {
 	SRC_FOLDER: "src",
 	DIST_FOLDER: "dist",
+	SCSS_FOLDER: "src/sass/*.scss",
 	MIN_SUFFIX: ".min.js",
 	CSS_SRC: "src/jasmine-tree.css",
 	JS_SRC: "src/jasmine-tree.js",
@@ -79,6 +81,12 @@ gulp.task("js", function(){
 		.pipe(gulp.dest(CONST.DIST_FOLDER));
 });
 
+gulp.task("scss", function(){
+	gulp.src(CONST.SCSS_FOLDER)
+		.pipe(sass.sync().on("error", sass.logError))
+		.pipe(gulp.dest(CONST.SRC_FOLDER));
+});
+
 gulp.task("zip", function(){
 	return gulp.src(CONST.FOLDERS_TO_ARCHIVE, {base: "."})
 		.pipe(zip(CONST.ARCHIVE_FILE))
@@ -87,6 +95,7 @@ gulp.task("zip", function(){
 
 gulp.task("default", function(callback){
 	runSequence(
+		"scss",
 		"css",
 		"js",
 		"zip",

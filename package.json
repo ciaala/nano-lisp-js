@@ -26,6 +26,7 @@
 		"run-sequence": "~1.1.4",
 		"gulp-rename": "~1.2.2",
 		"gulp-header": "~1.7.1",
-		"gulp-zip": "~3.0.2"
+		"gulp-zip": "~3.0.2",
+		"gulp-sass": "~2.1.0"
 	}
 }
