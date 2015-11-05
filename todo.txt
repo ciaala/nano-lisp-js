@@ -1,6 +1,3 @@
-- Add Gulp
-- Create distribution directory and files
-- Use Gulp to add banners
 - Enable SASS
 
 - Write Jasmine tests
