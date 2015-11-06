@@ -6,5 +6,5 @@ EMILY:
 
 MASSIMO:
 
-- Write Jasmine tests
+- Add more Jasmine tests
 - Add search box with auto-suggest
