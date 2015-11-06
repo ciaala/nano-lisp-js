@@ -32,7 +32,7 @@ function assembleBanner(version){
 	var now = new Date();
 	var banner = [
 		"/*! ",
-		"jasmine-tree " + version + " " + now.toISOString(),
+		pkg.name + " " + version + " " + now.toISOString(),
 		"Copyright " + now.getFullYear() + " Massimo Foti (massimo@massimocorner.com) and Emily Meroni (emily.meroni@gmail.com)",
 		"Licensed under the Apache License, Version 2.0 | http://www.apache.org/licenses/LICENSE-2.0",
 		" */",
