@@ -16,7 +16,7 @@
   "jasmine": true,
   "predef": [
     "jQuery",
-    "luga",
+    "jasmineTree",
     "Handlebars",
     "jasmine",
     "describe",
