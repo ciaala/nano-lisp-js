@@ -16,4 +16,18 @@ describe("jasmineTree", function(){
 		});
 	});
 
+	describe(".init()", function(){
+		it("Is an utility method to bootstrap the GUI", function(){
+			expect(jasmineTree.Suite).toBeDefined();
+			expect($.isFunction(jasmineTree.Suite)).toBeTruthy();
+		});
+	});
+
+	describe(".Suite", function(){
+		it("Is the constructor for the object that get attached to each suite", function(){
+			expect(jasmineTree.Suite).toBeDefined();
+			expect($.isFunction(jasmineTree.Suite)).toBeTruthy();
+		});
+	});
+
 });
