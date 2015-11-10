@@ -8,4 +8,6 @@ EMILY:
 MASSIMO:
 
 - Add more Jasmine tests
+- Add compatibility browser notice
+- Add installation instructions
 - Add search box with auto-suggest
