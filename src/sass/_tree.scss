@@ -1,15 +1,12 @@
+.jasmine-tree-summary {
+  line-height: $tree-node-line-height;
+}
+
 ul.suite.jasmine-tree-opennode {
   border-left: 1px solid $tree-connectors-color;
 }
 
 ul.suite::before,
-ul.suite.jasmine-tree-opennode:last-child::before {
-  border-bottom: 1px solid $tree-connectors-color;
-  height: 21px;
-  top: 0;
-}
-
-ul.suite::before,
 ul.suite.jasmine-tree-opennode:last-child::before,
 ul.suite::after {
   border-left: 1px solid $tree-connectors-color;
@@ -17,53 +14,23 @@ ul.suite::after {
   left: 0;
   position: absolute;
   width: 8px;
-}
-
-ul.suite.jasmine-tree-opennode::before,
-ul.suite.jasmine-tree-opennode::after {
-  border-left: 0 none;
 }
 
 ul.suite::before,
 ul.suite.jasmine-tree-opennode:last-child::before {
   border-bottom: 1px solid $tree-connectors-color;
-  height: 21px;
+  height: $tree-node-top-padding + ($tree-node-line-height / 2);
   top: 0;
 }
 
-ul.suite::before,
-ul.suite.jasmine-tree-opennode:last-child::before,
 ul.suite::after {
-  border-left: 1px solid $tree-connectors-color;
-  content: "";
-  left: 0;
-  position: absolute;
-  width: 8px;
+  height: ($tree-node-line-height / 2);
+  top: $tree-node-top-padding + ($tree-node-line-height / 2);
 }
 
 ul.suite.jasmine-tree-opennode::before,
 ul.suite.jasmine-tree-opennode::after {
   border-left: 0 none;
-}
-
-ul.suite.jasmine-tree-opennode:last-child,
-ul.suite:last-child::after {
-  border: 0 none;
-}
-
-ul.suite::after {
-  height: 7px;
-  top: 20.7px;
-}
-
-ul.suite::before,
-ul.suite.jasmine-tree-opennode:last-child::before,
-ul.suite::after {
-  border-left: 1px solid $tree-connectors-color;
-  content: "";
-  left: 0;
-  position: absolute;
-  width: 8px;
 }
 
 ul.suite.jasmine-tree-opennode:last-child,

@@ -1,3 +1,6 @@
 workspace.xml
 Massimo.xml
 node_modules/
+.idea/jsLinters/jshint.xml
+.idea/copyright/profile_settings.xml
+.idea/vcs.xml
