@@ -66,18 +66,21 @@ gulp.task("js", function(){
 	copyFiles(CONST.JS_SRC, CONST.DIST_FOLDER);
 	var jsVersion = getJsVersion();
 	return gulp.src(CONST.JS_SRC)
+		.pipe(sourcemaps.init())
 		// The "changed" task needs to know the destination directory
 		// upfront to be able to figure out which files changed
-		.pipe(changed(CONST.DIST_FOLDER))
-		.pipe(uglify({
-			mangle: false
+			.pipe(changed(CONST.DIST_FOLDER))
+			.pipe(uglify({
+				mangle: false
+			}))
+			.pipe(rename({
+				extname: CONST.MIN_SUFFIX
+			}))
+			.pipe(header(assembleBanner(jsVersion)))
+		.pipe(sourcemaps.write(".", {
+			includeContent: true,
+			sourceRoot: "."
 		}))
-		.pipe(rename({
-			extname: CONST.MIN_SUFFIX
-		}))
-		.pipe(header(assembleBanner(jsVersion)))
-		.pipe(sourcemaps.init())
-		.pipe(sourcemaps.write("."))
 		.pipe(gulp.dest(CONST.DIST_FOLDER));
 });
 
