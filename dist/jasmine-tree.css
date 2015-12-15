@@ -13,23 +13,27 @@ body {
   padding-bottom: 20px;
   visibility: visible; }
 
-div.summary.jasmine-tree-summary {
+div.summary.jasmine-tree-summary,
+div.jasmine-summary.jasmine-tree-summary {
   box-sizing: border-box; }
 
-div.summary.jasmine-tree-summary ul.suite {
+div.summary.jasmine-tree-summary ul.suite,
+div.jasmine-summary.jasmine-tree-summary ul.jasmine-suite {
   padding-left: 10px;
   position: relative; }
 
-div.summary.jasmine-tree-summary ul.specs li {
+div.summary.jasmine-tree-summary ul.specs li,
+div.jasmine-summary.jasmine-tree-summary ul.jasmine-specs li {
   padding-left: 10px; }
 
-div.summary.jasmine-tree-summary > ul.suite {
+div.summary.jasmine-tree-summary > ul.suite,
+div.jasmine-summary.jasmine-tree-summary > ul.jasmine-suite {
   border-left: 0; }
 
 div.summary.jasmine-tree-summary > ul.suite:before,
 div.summary.jasmine-tree-summary > ul.suite:after,
-div.summary.jasmine-tree-summary > ul.jasmine-suite:before,
-div.summary.jasmine-tree-summary > ul.jasmine-suite:after {
+div.jasmine-summary.jasmine-tree-summary > ul.jasmine-suite:before,
+div.jasmine-summary.jasmine-tree-summary > ul.jasmine-suite:after {
   border-left: 0;
   border-bottom: 0; }
 
