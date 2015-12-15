@@ -11,31 +11,39 @@ body {
   visibility: visible;
 }
 
-div.summary.jasmine-tree-summary {
+div.summary.jasmine-tree-summary,
+div.jasmine-summary.jasmine-tree-summary{
   box-sizing: border-box;
 }
 
-div.summary.jasmine-tree-summary ul.suite {
+div.summary.jasmine-tree-summary ul.suite,
+div.jasmine-summary.jasmine-tree-summary ul.jasmine-suite{
   padding-left: 10px;
   position: relative;
 }
 
-div.summary.jasmine-tree-summary ul.specs li {
+div.summary.jasmine-tree-summary ul.specs li,
+div.jasmine-summary.jasmine-tree-summary ul.jasmine-specs li{
   padding-left: 10px;
 }
 
-div.summary.jasmine-tree-summary > ul.suite {
+div.summary.jasmine-tree-summary > ul.suite,
+div.jasmine-summary.jasmine-tree-summary > ul.jasmine-suite{
   border-left: 0;
 }
 
 div.summary.jasmine-tree-summary > ul.suite:before,
-div.summary.jasmine-tree-summary > ul.suite:after {
+div.summary.jasmine-tree-summary > ul.suite:after,
+div.jasmine-summary.jasmine-tree-summary > ul.jasmine-suite:before,
+div.jasmine-summary.jasmine-tree-summary > ul.jasmine-suite:after{
   border-left: 0;
   border-bottom: 0;
 }
 
 .html-reporter .summary ul.suite,
-.jasmine_html-reporter .summary ul.suite {
+.jasmine_html-reporter .summary ul.suite,
+.html-reporter .jasmine-summary ul.jasmine-suite,
+.jasmine_html-reporter .jasmine-summary ul.jasmine-suite{
   padding-bottom: 0;
   padding-top: $tree-node-top-padding;
   margin-left: 8px;

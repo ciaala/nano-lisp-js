@@ -7,7 +7,6 @@ EMILY:
 
 MASSIMO:
 
-- Check Jasmine 2.4.x and CSS class names
 - Add more Jasmine tests
 - Add compatibility browser notice
 - Add installation instructions

@@ -9,7 +9,7 @@ if(typeof(jasmineTree) === "undefined"){
 (function(){
 	"use strict";
 
-	jasmineTree.version = "0.1.1";
+	jasmineTree.version = "0.1.2";
 
 	var CONST = {
 		CSS_CLASSES: {
@@ -21,11 +21,11 @@ if(typeof(jasmineTree) === "undefined"){
 		},
 		SELECTORS: {
 			FIRST_CHILD: ":first-child",
-			SUMMARY: ".summary",
-			ROOT_SUITE: ".summary > .suite",
-			NODE_TITLE: "> li.suite-detail",
-			NODE_SPECS: "> ul.specs",
-			NODE_SUITES: "> ul.suite"
+			SUMMARY: ".summary,.jasmine-summary",
+			ROOT_SUITE: ".summary > .suite,.jasmine-summary > .jasmine-suite",
+			NODE_TITLE: "> li.suite-detail,> li.jasmine-suite-detail",
+			NODE_SPECS: "> ul.specs,> ul.jasmine-specs",
+			NODE_SUITES: "> ul.suite,> ul.jasmine-suite"
 		},
 		TEXT: {
 			COLLAPSE: "Collapse All",
