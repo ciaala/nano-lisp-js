@@ -1,2 +1,8 @@
 # jasmine-tree
 An add-on for Jasmine's HTML Reporter. With expand/collapse and cool CSS.
+
+In order to use it just include jasmine-tree.css and jasmine-tree.js inside your HTML Reporter.
+You can see it in action here:
+http://massimocorner.com/lugajs/test/SpecRunner.htm?spec=luga.form
+
+jasmine-tree is designed to work in IE9+ and most recent versions of Chrome and FireFox. 
