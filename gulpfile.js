@@ -52,13 +52,6 @@ function copyFiles(source, destination){
 		.pipe(gulp.dest(destination));
 }
 
-gulp.task("css", function(){
-	var jsVersion = getJsVersion();
-	return gulp.src(CONST.CSS_SRC)
-		.pipe(header(assembleBanner(jsVersion)))
-		.pipe(gulp.dest(CONST.DIST_FOLDER));
-});
-
 gulp.task("js", function(){
 	copyFiles(CONST.JS_SRC, CONST.DIST_FOLDER);
 	var jsVersion = getJsVersion();
@@ -82,9 +75,13 @@ gulp.task("js", function(){
 });
 
 gulp.task("scss", function(){
+	var jsVersion = getJsVersion();
 	gulp.src(CONST.SCSS_FOLDER)
+		.pipe(sourcemaps.init())
 		.pipe(sass.sync().on("error", sass.logError))
-		.pipe(gulp.dest(CONST.SRC_FOLDER));
+		.pipe(header(assembleBanner(jsVersion)))
+		.pipe(sourcemaps.write("."))
+		.pipe(gulp.dest(CONST.DIST_FOLDER));
 });
 
 gulp.task("zip", function(){
@@ -96,7 +93,6 @@ gulp.task("zip", function(){
 gulp.task("default", function(callback){
 	runSequence(
 		"scss",
-		"css",
 		"js",
 		"zip",
 		function(error){
