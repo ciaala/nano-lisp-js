@@ -7,6 +7,5 @@ EMILY:
 
 MASSIMO:
 
-- Troubleshoot jasmine-tree.css generation. Dist version doesn't match src version
 - Add more Jasmine tests
 - Add search box with auto-suggest

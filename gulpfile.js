@@ -55,9 +55,6 @@ function copyFiles(source, destination){
 gulp.task("css", function(){
 	var jsVersion = getJsVersion();
 	return gulp.src(CONST.CSS_SRC)
-		// The "changed" task needs to know the destination directory
-		// upfront to be able to figure out which files changed
-		.pipe(changed(CONST.DIST_FOLDER))
 		.pipe(header(assembleBanner(jsVersion)))
 		.pipe(gulp.dest(CONST.DIST_FOLDER));
 });
