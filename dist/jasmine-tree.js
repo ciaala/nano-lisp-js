@@ -1,3 +1,8 @@
+/*! 
+jasmine-tree 0.1.2 2015-12-29T22:25:31.829Z
+Copyright 2015 Massimo Foti (massimo@massimocorner.com) and Emily Meroni (emily.meroni@gmail.com)
+Licensed under the Apache License, Version 2.0 | http://www.apache.org/licenses/LICENSE-2.0
+ */
 if(typeof(jQuery) === "undefined"){
 	throw("Unable to find jQuery");
 }
