@@ -6,5 +6,6 @@ EMILY:
 
 MASSIMO:
 
+- Create a Bower package
 - Add more Jasmine tests
 - Add search box with auto-suggest
