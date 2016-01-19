@@ -23,8 +23,7 @@
     "jasmine"
   ],
   "ignore": [
-    ".gitignore",
-    ".jshintrc",
+    "**/.*",
     "gulpfile.js",
     "Root.iml",
     "todo.txt",
