@@ -1,7 +1,9 @@
+/* istanbul ignore if */
 if(typeof(jQuery) === "undefined"){
 	throw("Unable to find jQuery");
 }
 
+/* istanbul ignore if */
 if(typeof(jasmineTree) === "undefined"){
 	var jasmineTree = {};
 }

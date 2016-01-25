@@ -1,6 +1,6 @@
-workspace.xml
-Massimo.xml
 node_modules/
-.idea/jsLinters/jshint.xml
-.idea/copyright/profile_settings.xml
+test/coverage
+.idea/workspace.xml
+.idea/dictionaries/Massimo.xml
+.idea/dictionaries/foti.xml
 .idea/vcs.xml

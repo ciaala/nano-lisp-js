@@ -12,6 +12,7 @@ var sass = require("gulp-sass");
 var sourcemaps = require("gulp-sourcemaps");
 var uglify = require("gulp-uglify");
 var zip = require("gulp-zip");
+var karmaServer = require("karma").Server;
 
 var pkg = require("./package.json");
 
@@ -46,6 +47,13 @@ function getJsVersion(){
 	var version = CONST.VERSION_PATTERN.exec(fileStr)[1];
 	return version;
 }
+
+gulp.task("coverage", function (done) {
+	// Use Karma only for the sake of producing a code coverage report
+	new karmaServer({
+		configFile: __dirname + "/test/karma.conf.js"
+	}, done).start();
+});
 
 gulp.task("js", function(){
 	var jsVersion = getJsVersion();
