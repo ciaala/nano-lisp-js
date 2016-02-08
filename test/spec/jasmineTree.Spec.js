@@ -2,6 +2,27 @@
 
 describe("jasmineTree", function(){
 
+	var CONST;
+	beforeEach(function(){
+
+		loadFixtures("tree.htm");
+
+		CONST = {
+			CSS_CLASSES: {
+				SUMMARY: "jasmine-tree-summary",
+				NODE_OPENED: "jasmine-tree-opennode"
+			},
+			SELECTORS: {
+				BUTTON: ".jasmine-tree-button",
+				SUMMARY: ".summary,.jasmine-summary",
+				NODE_OPENED: ".jasmine-tree-opennode",
+				TOOLBAR: ".jasmine-tree-toolbar",
+				TRIGGER: ".jasmine-tree-trigger"
+			}
+		};
+
+	});
+
 	it("Requires jQuery in order to work", function(){
 		expect(jQuery).toBeDefined();
 	});
@@ -44,11 +65,115 @@ describe("jasmineTree", function(){
 		});
 	});
 
+	describe(".addRootClass()", function(){
+		it("Associate the root element to the 'jasmine-tree-summary' CSS class", function(){
+			jasmineTree.addRootClass();
+			expect(jQuery(CONST.SELECTORS.SUMMARY)).toHaveClass(CONST.CSS_CLASSES.SUMMARY);
+		});
+	});
+
+	describe(".addToolbar()", function(){
+		it("Add the toolbar element to the DOM", function(){
+			expect(jQuery(CONST.SELECTORS.TOOLBAR).length).toEqual(0);
+			jasmineTree.addToolbar();
+			expect(jQuery(CONST.SELECTORS.TOOLBAR).length).toEqual(1);
+		});
+
+		describe("The toolbar contains:", function(){
+			it("Two buttons", function(){
+				jasmineTree.addToolbar();
+				expect(jQuery(CONST.SELECTORS.BUTTON).length).toEqual(2);
+			});
+			it("The first calls .collapseAll()", function(){
+				spyOn(jasmineTree, "collapseAll");
+				jasmineTree.addToolbar();
+				jQuery(CONST.SELECTORS.BUTTON)[0].click();
+				expect(jasmineTree.collapseAll).toHaveBeenCalled();
+			});
+			it("The second calls .expandAll()", function(){
+				spyOn(jasmineTree, "expandAll");
+				jasmineTree.addToolbar();
+				jQuery(CONST.SELECTORS.BUTTON)[1].click();
+				expect(jasmineTree.expandAll).toHaveBeenCalled();
+			});
+		});
+	});
+
+	describe(".collapseAll()", function(){
+		it("Collapse all the suite's nodes", function(){
+			jasmineTree.init();
+			expect(jQuery(CONST.SELECTORS.NODE_OPENED).length).toEqual(45);
+			jasmineTree.collapseAll();
+			expect(jQuery(CONST.SELECTORS.NODE_OPENED).length).toEqual(0);
+		});
+	});
+
+	describe(".expandAll()", function(){
+		it("Expand all the suite's nodes", function(){
+			jasmineTree.init();
+			expect(jQuery(CONST.SELECTORS.NODE_OPENED).length).toEqual(45);
+			jasmineTree.collapseAll();
+			expect(jQuery(CONST.SELECTORS.NODE_OPENED).length).toEqual(0);
+			jasmineTree.expandAll();
+			expect(jQuery(CONST.SELECTORS.NODE_OPENED).length).toEqual(45);
+		});
+	});
+
+
+	describe(".filterSpec()", function(){
+
+		describe("If there is no 'spec' entry in the querystring:", function(){
+			it("Does nothing", function(){
+				spyOn(jasmineTree, "collapseAll");
+				jasmineTree.filterSpec();
+				expect(jasmineTree.collapseAll).not.toHaveBeenCalled();
+			});
+		});
+		describe("Else:", function(){
+
+			describe("First:", function(){
+				it("Calls .collapseAll()", function(){
+					spyOn(jasmineTree, "getSpecFilter").and.returnValue("luga.form");
+					spyOn(jasmineTree, "collapseAll");
+					jasmineTree.filterSpec();
+					expect(jasmineTree.collapseAll).toHaveBeenCalled();
+				});
+			});
+			describe("Then::", function(){
+				it("Expand the matching suite", function(){
+					spyOn(jasmineTree, "getSpecFilter").and.returnValue("luga.form");
+					jasmineTree.init();
+					expect(jQuery("#suite-suite19")).toHaveClass(CONST.CSS_CLASSES.NODE_OPENED);
+				});
+			});
+
+		});
+
+	});
+
 	describe(".Suite", function(){
+
 		it("Is the constructor for the object that get attached to each suite", function(){
 			expect(jasmineTree.Suite).toBeDefined();
 			expect($.isFunction(jasmineTree.Suite)).toBeTruthy();
 		});
+
+		it("Adds expand/collapse triggers to each suite", function(){
+			jasmineTree.init();
+			expect(jQuery(CONST.SELECTORS.TRIGGER).length).toEqual(45);
+		});
+
+		it("First click on the trigger collapse the suite, second click expand it", function(){
+			jasmineTree.init();
+			var suiteNode = jQuery("#suite-suite19");
+			var triggerNode = suiteNode.find(CONST.SELECTORS.TRIGGER)[0];
+			expect(suiteNode).toHaveClass(CONST.CSS_CLASSES.NODE_OPENED);
+			triggerNode.click();
+			expect(suiteNode).not.toHaveClass(CONST.CSS_CLASSES.NODE_OPENED);
+			triggerNode.click();
+			expect(suiteNode).toHaveClass(CONST.CSS_CLASSES.NODE_OPENED);
+		});
+
 	});
 
 });
