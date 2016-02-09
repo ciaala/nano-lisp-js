@@ -1,12 +1,14 @@
 /*! 
-jasmine-tree 0.1.2 2015-12-29T22:25:31.829Z
-Copyright 2015 Massimo Foti (massimo@massimocorner.com) and Emily Meroni (emily.meroni@gmail.com)
+jasmine-tree 0.1.3 2016-02-09T10:18:08.193Z
+Copyright 2016 Massimo Foti (massimo@massimocorner.com) and Emily Meroni (emily.meroni@gmail.com)
 Licensed under the Apache License, Version 2.0 | http://www.apache.org/licenses/LICENSE-2.0
  */
+/* istanbul ignore if */
 if(typeof(jQuery) === "undefined"){
 	throw("Unable to find jQuery");
 }
 
+/* istanbul ignore if */
 if(typeof(jasmineTree) === "undefined"){
 	var jasmineTree = {};
 }
@@ -14,7 +16,7 @@ if(typeof(jasmineTree) === "undefined"){
 (function(){
 	"use strict";
 
-	jasmineTree.version = "0.1.2";
+	jasmineTree.version = "0.1.3";
 
 	var CONST = {
 		CSS_CLASSES: {
@@ -153,7 +155,7 @@ if(typeof(jasmineTree) === "undefined"){
 
 			var titleNode = config.rootNode.find(CONST.SELECTORS.NODE_TITLE);
 
-			fullPath = config.rootPath + titleNode.text();
+			fullPath = config.rootPath + jQuery.trim(titleNode.text());
 			triggerNode.insertBefore(titleNode.find(CONST.SELECTORS.FIRST_CHILD));
 
 			config.rootNode.find(CONST.SELECTORS.NODE_SPECS).each(function(index, item){
@@ -201,7 +203,7 @@ if(typeof(jasmineTree) === "undefined"){
 			}
 			// Search inside child specs
 			for(var j = 0; j < specs.length; j++){
-				var specPath = self.getPath() + " " + specs[j].text();
+				var specPath = self.getPath() + " " + jQuery.trim(specs[j].text());
 				if(specPath === path){
 					return true;
 				}

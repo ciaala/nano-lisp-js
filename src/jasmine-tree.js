@@ -11,7 +11,7 @@ if(typeof(jasmineTree) === "undefined"){
 (function(){
 	"use strict";
 
-	jasmineTree.version = "0.1.2";
+	jasmineTree.version = "0.1.3";
 
 	var CONST = {
 		CSS_CLASSES: {
@@ -150,7 +150,7 @@ if(typeof(jasmineTree) === "undefined"){
 
 			var titleNode = config.rootNode.find(CONST.SELECTORS.NODE_TITLE);
 
-			fullPath = config.rootPath + titleNode.text();
+			fullPath = config.rootPath + jQuery.trim(titleNode.text());
 			triggerNode.insertBefore(titleNode.find(CONST.SELECTORS.FIRST_CHILD));
 
 			config.rootNode.find(CONST.SELECTORS.NODE_SPECS).each(function(index, item){
@@ -198,7 +198,7 @@ if(typeof(jasmineTree) === "undefined"){
 			}
 			// Search inside child specs
 			for(var j = 0; j < specs.length; j++){
-				var specPath = self.getPath() + " " + specs[j].text();
+				var specPath = self.getPath() + " " + jQuery.trim(specs[j].text());
 				if(specPath === path){
 					return true;
 				}
