@@ -184,12 +184,28 @@ describe("jasmineTree", function(){
 
 		describe(".containsPath()", function(){
 
-			it("Return true if the suite's name starts with the given string", function(){
-				expect(suite.containsPath("luga.form")).toBeTruthy();
+			describe("Return true if:", function(){
+
+				it("The suite's name starts with the given string", function(){
+					expect(suite.containsPath("luga.form")).toBeTruthy();
+				});
+
+				it("A child suite's name starts with the given string", function(){
+					expect(suite.containsPath("luga.form .toQueryString()")).toBeTruthy();
+				});
+
+				it("A child spec's name starts with the given string", function(){
+					expect(suite.containsPath("luga.form .toQueryString() Ignores unsuccessful fields")).toBeTruthy();
+				});
+
 			});
 
-			it("False otherwise", function(){
-				expect(suite.containsPath("missing")).toBeFalsy();
+			describe("Return false:", function(){
+
+				it("Otherwise", function(){
+					expect(suite.containsPath("missing")).toBeFalsy();
+				});
+
 			});
 
 		});
@@ -205,6 +221,12 @@ describe("jasmineTree", function(){
 			it("Expand the suite node", function(){
 				suite.expand();
 				expect(suiteNode).toHaveClass(CONST.CSS_CLASSES.NODE_OPENED);
+			});
+		});
+
+		describe(".getPath()", function(){
+			it("Return the full path", function(){
+				expect(jQuery.trim(suite.getPath())).toEqual("luga.form");
 			});
 		});
 
