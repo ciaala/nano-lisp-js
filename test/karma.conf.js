@@ -16,8 +16,8 @@ module.exports = function(config) {
 
 			// Jasmine libs and configuration
 			"test/lib/jasmine/jasmine-jquery.js",
-			"dist/jasmine-tree.min.js",
-			"dist/jasmine-tree.css",
+			"lib/jasmine-tree/jasmine-tree.min.js",
+			"lib/jasmine-tree/jasmine-tree.css",
 			"test/fixtures.karma.config.js",
 
 			// Source files
