@@ -4,6 +4,9 @@
   "license": "Apache-2.0",
   "homepage": "https://github.com/MassimoFoti/jasmine-tree",
   "authors": [
+    "Francesco Fiduccia <francesco.fiduccia@gmail.com>",
+  ],
+  "contributors": [
     "Massimo Foti <massimo@massimocorner.com>",
     "Emily Meroni <emily.meroni@gmail.com>"
   ],
