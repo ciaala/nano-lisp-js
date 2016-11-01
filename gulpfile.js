@@ -22,7 +22,7 @@ var CONST = {
 	SCSS_FOLDER: "src/sass/*.scss",
 	MIN_SUFFIX: ".min.js",
 	CSS_SRC: "src/jasmine-tree.css",
-	JS_SRC: "src/jasmine-tree.js",
+	JS_SRC: "src/js/nanolisp.js",
 	FOLDERS_TO_ARCHIVE: ["LICENSE","dist/**/*", "lib/**/*", "src/**/*", "test/**/*"],
 	ARCHIVE_FILE: "jasmine-tree.zip",
 	ARCHIVE_FOLDER: "archive",
